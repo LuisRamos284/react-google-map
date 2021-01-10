@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
-import { Input, Button, Divider, Layout, Badge, List, notification } from "antd";
+import {
+  Input,
+  Button,
+  Divider,
+  Layout,
+  Badge,
+  List,
+  notification,
+} from "antd";
 import GoogleMapReact from "google-map-react";
-import { API_KEY } from './env'
+import { API_KEY } from "./env";
 
 const { Header, Sider, Content } = Layout;
 
@@ -48,7 +56,7 @@ function App() {
 
   const openNotificationWithIcon = (type, text) => {
     notification[type]({
-      message: type === 'error' ? 'Error!' : 'Success!',
+      message: type === "error" ? "Error!" : "Success!",
       description: text,
     });
   };
@@ -72,7 +80,7 @@ function App() {
     const aux = [...marks, currentMark];
     map.setCenter(currentMark.position);
     setMarks(aux);
-    openNotificationWithIcon('success','Mark added succesfully')
+    openNotificationWithIcon("success", "Mark added succesfully");
     clear();
   };
 
@@ -85,9 +93,15 @@ function App() {
           position: results[0].geometry.location,
         });
         setCurrentMark(marker);
-        openNotificationWithIcon('success','Coordinates Calculated succesfully')
+        openNotificationWithIcon(
+          "success",
+          "Coordinates Calculated succesfully"
+        );
       } else {
-        openNotificationWithIcon('error',`Geocode was not successful for the following reason: ${status}`)
+        openNotificationWithIcon(
+          "error",
+          `Geocode was not successful for the following reason: ${status}`
+        );
       }
     });
   };
@@ -118,7 +132,11 @@ function App() {
           value={currentMark?.position.lng() ?? ""}
         />
         <Divider orientation="left" plain />
-        <Button type="primary" disabled={loading || !currentMark} onClick={markPosition}>
+        <Button
+          type="primary"
+          disabled={loading || !currentMark}
+          onClick={markPosition}
+        >
           Mark
         </Button>
         <Divider orientation="left" plain>
@@ -156,7 +174,7 @@ function App() {
         <Content>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: API_KEY
+              key: API_KEY,
             }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
