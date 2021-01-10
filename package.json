@@ -2,6 +2,7 @@
   "name": "google-maps-api",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.0.0-next.11",
     "@emotion/styled": "^11.0.0-next.11",

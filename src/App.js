@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Input, Button, Divider, Layout, Badge, List, notification } from "antd";
 import GoogleMapReact from "google-map-react";
+import { API_KEY } from './env'
 
 const { Header, Sider, Content } = Layout;
 
@@ -155,7 +156,7 @@ function App() {
         <Content>
           <GoogleMapReact
             bootstrapURLKeys={{
-              key: "AIzaSyApV4iNXBzlRGPc3bQkRprnxlSTYLo4fOM",
+              key: API_KEY
             }}
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
